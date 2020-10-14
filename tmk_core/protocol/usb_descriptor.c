@@ -1106,7 +1106,13 @@ const USB_Descriptor_String_t PROGMEM ProductString = {
     .UnicodeString              = USBSTR(PRODUCT)
 };
 
-// clang-format on
+#ifndef SERIAL_NUMBER
+#ifdef VIAL_ENABLE
+#    define SERIAL_NUMBER vial:f64c2b3c
+#else
+#    define SERIAL_NUMBER 0
+#endif
+#endif
 
 #if defined(SERIAL_NUMBER)
 // clang-format off
